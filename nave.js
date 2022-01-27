@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 ctx.width = 200;
-ctx.height=270;
+ctx.height=300;
 
 var nome=navigator.userAgent; 
 var direita=39;
@@ -19,7 +19,6 @@ var fundo = new function(){
     this.w =200;
     this.h =30;
     this.length=10;
-    this.framesExibidos = 9;
 }
 
 var nave =  new function(){
@@ -44,9 +43,9 @@ function desenha(){
 }
 
 function desenhaFundo(){
-    for (let i = 0; i < fundo.framesExibidos; i++) {
+    for (let i = 0; i < fundo.length; i++) {
        posicaoOrigemY= fundo.h*((fundo.iniframe+i)% fundo.length);
-       y = fundo.h*(fundo.framesExibidos-i);
+       y = fundo.h*(fundo.length-i);
        ctx.drawImage(fundo.img,0,posicaoOrigemY,fundo.w, fundo.h,0,y,fundo.w, fundo.h);  
     }
     fundo.iniframe = (fundo.iniframe+1)% fundo.length;
